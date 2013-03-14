@@ -15,16 +15,30 @@
             }
         </style>
     </head>
-    <body ng-controller="BusStopController">
+    <body>
 
         <div class="container">
-            <div id="stop-info" class="row">
-                <div class="span12">
+                <div class="span12" ng-controller="BusStopController">
                     <h1>[[stopName]] - [[stopCode]]</h1>
                 </div>
-            </div>
 
-            <div id="stop-container" class="row">
+            <div id="stop-container" class="row" ng-controller="BusServiceController">
+                <div class="span[[ spanWidth ]]" ng-repeat="bus in buses">
+                    <h2>Service [[ bus.serviceNumber ]]</h2><table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Destination</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="service in bus.services">
+                            <td>[[ service.mins ]]</td>
+                            <td>[[ service.destination ]]</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
             </div>
 
             <hr>
