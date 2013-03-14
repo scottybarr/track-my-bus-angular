@@ -1,13 +1,16 @@
+'use strict';
+
 var app = angular.module('bus', []);
 app.config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('[[');
     $interpolateProvider.endSymbol(']]');
 });
 
-function StopInfoController($scope, $http) {
+function BusStopController($scope) {
+    $scope.stopName = "Princes Street";
+    $scope.stopCode = 123456;
+}
 
-};
+function BusServiceController($scope) {
 
-function ServiceInfoController($scope) {
-
-};
+}
