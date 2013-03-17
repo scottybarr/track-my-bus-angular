@@ -18,13 +18,13 @@
     <body>
 
         <div class="container">
-                <div class="span12" ng-controller="BusStopController">
-                    <h1>[[stopName]] - [[stopCode]]</h1>
-                </div>
+            <div class="row" ng-controller="BusStopController">
+                <h1>[[stopModel.stopName]] - [[stopModel.stopCode]]</h1>
+            </div>
 
             <div id="stop-container" class="row" ng-controller="BusServiceController">
-                <div class="span[[ spanWidth ]]" ng-repeat="bus in buses">
-                    <h2>Service [[ bus.serviceNumber ]]</h2><table class="table table-striped">
+                <div class="span[[ spanWidth ]]" ng-repeat="bus in stopModel.buses">
+                    <h2>Service [[ bus.service_name ]]</h2><table class="table table-striped">
                     <thead>
                     <tr>
                         <th>Time</th>
@@ -32,7 +32,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="service in bus.services">
+                        <tr ng-repeat="service in bus.times">
                             <td>[[ service.mins ]]</td>
                             <td>[[ service.destination ]]</td>
                         </tr>
@@ -48,7 +48,11 @@
             </footer>
 
         </div> <!-- /container -->
-    <script src="{{ url_for('static', filename='components/angular/angular.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='components/tracker.js') }}"></script>
+        <script type='text/javascript'>
+            STOP_CODE = {{ stop }};
+        </script>
+        <script src="{{ url_for('static', filename='components/angular/angular.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='components/app.js') }}"></script>
+        <script src="{{ url_for('static', filename='components/controllers.js') }}"></script>
     </body>
 </html>
