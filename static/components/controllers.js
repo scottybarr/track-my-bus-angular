@@ -2,8 +2,8 @@
 
 function BusStopController($scope, StopModel) {
     $scope.stopModel = StopModel
-    $scope.stopModel.stopName = "Princes Street";
-    $scope.stopModel.stopCode = 123456;
+    $scope.stopModel.stopName = "Bus Stop";
+    $scope.stopModel.stopCode = 0;
 };
 
 function BusServiceController($scope, $routeParams, $http, StopModel) {
